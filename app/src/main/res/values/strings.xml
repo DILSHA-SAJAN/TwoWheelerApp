@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CdlApp</string>
+    <string name="cdl">CDL</string>
+    <string name="view_attachments">View Attachments</string>
+    <string name="view_questionnaire">Add Questionnaire</string>
+    <string name="select_questionnaire">Select Questionnaire</string>
+    <string name="add_aadhaar_card">Add Aadhaar Card</string>
+    <string name="view_pan_card">View PAN Card</string>
+    <string name="upload_bank_statement">Upload Bank Statement</string>
+    <string name="choose_file">Choose File</string>
+    <string name="upload_agreement">Upload Agreement</string>
+    <string name="upload_pledge_form">Upload Pledge Form</string>
+    <string name="request_list">Request List</string>
+    <string name="add_new_customer">+ Add New Customer</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="rupee_symbol">₹</string>
+    <string name="add_pan_card">Add PAN Card</string>
+    <string name="add_new_dealer">Add New Dealer</string>
+</resources>

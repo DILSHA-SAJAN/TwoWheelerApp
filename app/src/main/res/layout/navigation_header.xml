@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="200dp"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/cdl_logo"/>
+
+
+    <!--<TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cdl"
+        android:textSize="24sp"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/black"
+        android:textStyle="bold" />-->
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="120dp"
+        android:id="@+id/drawer_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="14sp"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/black" />
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="120dp"
+        android:id="@+id/drawer_empcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="14sp"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/black" />
+    <TextView
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="120dp"
+        android:id="@+id/drawer_emppost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="14sp"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/black" />
+
+        <!--<TextView
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="170dp"
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="14sp"
+            android:fontFamily="@font/rubik_bold"
+            android:textColor="@color/black" />-->
+
+    </RelativeLayout>
+</LinearLayout>

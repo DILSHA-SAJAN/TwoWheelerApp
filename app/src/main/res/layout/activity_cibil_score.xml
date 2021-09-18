@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context=".activity.CibilScoreActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/msglayout"
+            android:orientation="vertical">
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/edtapplicantType"
+                android:hint="applicantType"
+                android:textColorHint="@color/black"
+                android:textColor="@android:color/black"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/applicantfirstname"
+                android:hint="applicantfirstname"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/applicantlastname"
+                android:hint="applicantlastname"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/dateofbirth"
+                android:hint="dateofbirth"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/gender"
+                android:hint="gender"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/purpose"
+                android:hint="purpose"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/amount"
+                android:hint="amount"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/scoretype"
+                android:hint="scoretype"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+
+
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/gstStateCode"
+                android:hint="gstStateCode"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/idNumber"
+                android:hint="idNumber"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/idType"
+                android:hint="idType"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/telephoneNumber"
+                android:hint="telephoneNumber"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/telephoneType"
+                android:hint="telephoneType"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/addressLine1"
+                android:hint="addressLine1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/addressLine2"
+                android:hint="addressLine2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/addressLine3"
+                android:hint="addressLine3"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/city"
+                android:hint="city"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/pinCode"
+                android:hint="pinCode"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/residenceType"
+                android:hint="residenceType"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/stateCode"
+                android:hint="stateCode"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+
+            <Button
+                android:id="@+id/checkbtn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="check cibil score"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                android:background="@color/purple_700"
+                android:layout_marginTop="10.2dp"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+        </LinearLayout>
+
+
+
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

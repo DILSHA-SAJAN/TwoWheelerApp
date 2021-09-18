@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <group
+        android:id="@+id/group9"
+        android:visible="false">
+        <item
+            android:id="@+id/nav_cust_approval"
+            android:icon="@drawable/customer_list"
+            android:title="My Pending Approvals Today" />
+    </group>
+
+    <group
+        android:id="@+id/group1">
+    <item
+        android:checked="true"
+        android:id="@+id/nav_view_customer"
+        android:icon="@drawable/customer_list"
+        android:title="Customer List" />
+    </group>
+
+
+
+    <group
+        android:id="@+id/group2">
+        <item
+            android:id="@+id/nav_add_customer"
+            android:icon="@drawable/add_customer3"
+            android:title="Add Customer" />
+    </group>
+
+    <group
+        android:id="@+id/group10"
+        android:visible="false">
+        <item
+            android:id="@+id/nav_edit_customer"
+            android:icon="@drawable/add_customer3"
+            android:title="Edit Customer" />
+    </group>
+
+
+    <group
+        android:visible="false"
+        android:id="@+id/group3">
+    <item
+        android:id="@+id/nav_add_dealer"
+        android:icon="@drawable/add_dealer"
+        android:title="Add Dealer" />
+    </group>
+
+    <group
+        android:visible="false"
+        android:id="@+id/group4">
+    <item
+        android:id="@+id/nav_view_dealer"
+        android:icon="@drawable/dealer_requestlist"
+        android:title="Dealer List" />
+    </group>
+
+    <group
+        android:visible="false"
+        android:id="@+id/group5">
+    <item
+        android:id="@+id/nav_cibil_score"
+        android:icon="@drawable/cibil_score"
+        android:title="CIBIL Score" />
+    </group>
+
+    <group
+        android:id="@+id/group6">
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout1"
+        android:title="Logout" />
+    </group>
+
+    <group
+        android:visible="false"
+        android:id="@+id/group7">
+        <item
+            android:id="@+id/nav_questionnaire"
+            android:title="Questionnaire" />
+
+    </group>
+    <group
+        android:id="@+id/group8">
+        <item
+            android:id="@+id/none"
+            android:title="" />
+
+    </group>
+</menu>

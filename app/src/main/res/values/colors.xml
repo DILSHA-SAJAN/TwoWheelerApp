@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#FFDBB6</color>
+    <color name="colorPrimaryDark">#ffc500</color>
+    <color name="colorAccent">#d60129</color>
+    <color name="colorBrandYello">#ffc500</color>
+    <color name="grey_300">#B3B3B3</color>
+    <color name="red_100">#d60129</color>
+    <color name="transparent">#80000000</color>
+    <color name="pure_transparent">#00000000</color>
+    <color name="blue_button">#2F3D4A</color>
+    <color name="grey_edittext">#F3F3F3</color>
+    <color name="backGroundColor">#CBFFFFFF</color>
+</resources>

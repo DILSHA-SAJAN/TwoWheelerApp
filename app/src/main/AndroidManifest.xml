@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.manappuram.twowheeler">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CdlApp">
+        <activity android:name="com.manappuram.twowheeler.activity.ViewQuestionnaireAnswerActivity"></activity>
+        <activity android:name="com.manappuram.twowheeler.activity.ViewIndividualDealerActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.DocWebViewActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.CustomerApprovalActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.manappuram.twowheeler.activity.InternalScoreCardActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.SuccessActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.CibilScoreActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.ViewIndividualCustActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.SalesManagerCustDetailsActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.CreditManagerCustDetailsActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.ViewDealerActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.AddDealerDocumentActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.AddDealerActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.ViewCustomerActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.BaseActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.AddCustDocumentActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.AddCustomerActivity" />
+        <activity android:name="com.manappuram.twowheeler.activity.LoginActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>
