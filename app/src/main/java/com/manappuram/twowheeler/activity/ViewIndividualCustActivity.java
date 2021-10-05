@@ -114,6 +114,8 @@ public class ViewIndividualCustActivity extends AppCompatActivity {
                         binding.etLoanAmount.setText(customerListResponse1.getCustList().get(i).getLoan_amt());
                         binding.etIdNum.setText(customerListResponse1.getCustList().get(i).getPan_no());
                         binding.etLeadStatus.setText(customerListResponse1.getCustList().get(i).getRemarks());
+                        binding.etEligible.setText(customerListResponse1.getCustList().get(i).getEligible_sts());
+                        binding.etRating.setText(customerListResponse1.getCustList().get(i).getRating());
                         uploaded_by = customerListResponse1.getCustList().get(i).getUploaded_by();
                         panCard = customerListResponse1.getCustList().get(i).getPan_no();
                     }

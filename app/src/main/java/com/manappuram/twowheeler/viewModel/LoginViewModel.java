@@ -36,6 +36,7 @@ import com.manappuram.twowheeler.response.DocViewResponse;
 import com.manappuram.twowheeler.response.IndividualCustResponse;
 import com.manappuram.twowheeler.response.IndividualDealerResponsse;
 import com.manappuram.twowheeler.response.LoginResponse;
+import com.manappuram.twowheeler.response.MisReportResponse;
 import com.manappuram.twowheeler.response.OtherVerticalsResponse;
 import com.manappuram.twowheeler.response.Output.CibilScoreOutput;
 import com.manappuram.twowheeler.response.PostOfficeResponse;
@@ -70,6 +71,7 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<QuestionnaireResponse> questionnaireResponseMutableLiveData;
     private MutableLiveData<IndividualDealerResponsse> individualDealerResponsseMutableLiveData;
     private MutableLiveData<BaseResponse> baseResponseMutableLiveData;
+    private MutableLiveData<MisReportResponse> misReportResponseMutableLiveData;
 
 
     public LoginViewModel() {
@@ -97,6 +99,15 @@ public class LoginViewModel extends ViewModel {
         questionnaireResponseMutableLiveData = new MutableLiveData<>();
         individualDealerResponsseMutableLiveData = new MutableLiveData<>();
         baseResponseMutableLiveData = new MutableLiveData<>();
+        misReportResponseMutableLiveData = new MutableLiveData<>();
+    }
+
+    public MutableLiveData<MisReportResponse> getMisReportResponseMutableLiveData() {
+        return misReportResponseMutableLiveData;
+    }
+
+    public void setMisReportResponseMutableLiveData(MutableLiveData<MisReportResponse> misReportResponseMutableLiveData) {
+        this.misReportResponseMutableLiveData = misReportResponseMutableLiveData;
     }
 
     public MutableLiveData<BaseResponse> getBaseResponseMutableLiveData() {
@@ -542,6 +553,15 @@ public class LoginViewModel extends ViewModel {
         loginRepository.sendInternalScore(request,
                 (LoginRepository.SuccessResponse<BaseResponse>) scoreCardResponse -> {
                     baseResponseMutableLiveData.setValue(scoreCardResponse);
+                });
+    }
+
+    // Dilsha 05-10-2021 MIS Report dashboard
+    public void viewMISData(OtherVerticalsRequest request) {
+
+        loginRepository.getMISData(request,
+                (LoginRepository.SuccessResponse<MisReportResponse>) misReportResponse -> {
+                    misReportResponseMutableLiveData.setValue(misReportResponse);
                 });
     }
 }

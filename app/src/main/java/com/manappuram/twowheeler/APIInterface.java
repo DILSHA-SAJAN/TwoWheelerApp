@@ -13,6 +13,7 @@ import com.manappuram.twowheeler.response.DocViewResponse;
 import com.manappuram.twowheeler.response.IndividualCustResponse;
 import com.manappuram.twowheeler.response.IndividualDealerResponsse;
 import com.manappuram.twowheeler.response.LoginResponse;
+import com.manappuram.twowheeler.response.MisReportResponse;
 import com.manappuram.twowheeler.response.OtherVerticalsResponse;
 import com.manappuram.twowheeler.response.Output.CibilScoreOutput;
 import com.manappuram.twowheeler.response.PostOfficeResponse;
@@ -296,4 +297,10 @@ public interface APIInterface {
                                          @Field("total") String total,
                                          @Field("sessionId") String sessionId
     );
+
+    // MIS Report Dashboard 05 Oct 2021
+    @POST("GetTWLMISReport")
+    @FormUrlEncoded
+    Call<MisReportResponse> getMISReport(@Field("flag") String flag,
+                                         @Field("sessionId") String sessionId);
 }

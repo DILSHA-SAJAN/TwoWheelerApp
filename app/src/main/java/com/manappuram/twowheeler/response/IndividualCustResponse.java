@@ -102,6 +102,30 @@ public class IndividualCustResponse extends BaseResponse {
         @Expose
         public String tenure;
 
+        @SerializedName("eligible_sts")
+        @Expose
+        public String eligible_sts;
+
+        @SerializedName("rating")
+        @Expose
+        public String rating;
+
+        public String getEligible_sts() {
+            return eligible_sts;
+        }
+
+        public void setEligible_sts(String eligible_sts) {
+            this.eligible_sts = eligible_sts;
+        }
+
+        public String getRating() {
+            return rating;
+        }
+
+        public void setRating(String rating) {
+            this.rating = rating;
+        }
+
         public String getGender() {
             return gender;
         }

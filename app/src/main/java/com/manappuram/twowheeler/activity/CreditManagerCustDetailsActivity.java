@@ -256,6 +256,8 @@ public class CreditManagerCustDetailsActivity extends AppCompatActivity {
                         binding.etCibil.setText(customerListResponse1.getCustList().get(i).getCibil_score());
                         binding.etInternalScore.setText(customerListResponse1.getCustList().get(i).getTot_int_score());
                         binding.etTenure.setText(customerListResponse1.getCustList().get(i).getTenure());
+                        binding.etEligibility.setText(customerListResponse1.getCustList().get(i).getEligible_sts());
+                        binding.etRating.setText(customerListResponse1.getCustList().get(i).getRating());
 
                     }
 

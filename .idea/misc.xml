@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/drawable-v24/report_header_shape.xml" value="0.1" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_credit_manager_cust_details.xml" value="0.15155615696887687" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_customer_approval.xml" value="0.1" />
         <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_mis_report.xml" value="0.22" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_sales_manager_cust_details.xml" value="0.1679160419790105" />
         <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_view_customer.xml" value="0.17552083333333332" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/activity_view_individual_cust.xml" value="0.18597560975609756" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/layout/itemprioritylist.xml" value="0.16666666666666666" />
+        <entry key="..\:/Github/TWL_Dealer_App/app/src/main/res/menu/navigation_menu.xml" value="0.22" />
       </map>
     </option>
   </component>
