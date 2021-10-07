@@ -300,13 +300,20 @@ public class LoginRepository extends BaseRepository {
         }).enqueue();
     }
 
-    // Customer ID creation June 22
+    // Customer ID creation June 22 edited 06 Oct
     public void createCustID(CustIDCreationRequest request, SuccessResponse successResponse) {
         Call<CustIDCreationResponse> call = RetrofitClient.getAPIInterface().custIDCreation(
                 request.getFlag(),
                 request.getCust_name(),
                 request.getCust_mob(),
                 request.getDoc_seq(),
+                request.getState_id(),
+                request.getDistrict_id(),
+                request.getLoan_amt(),
+                request.getProfession(),
+                request.getUpdated_by(),
+                request.getBranch_id(),
+                request.getDob(),
                 request.getSessionId());
 
         new RetrofitRequest<>(call, new ResponseListener<CustIDCreationResponse>() {

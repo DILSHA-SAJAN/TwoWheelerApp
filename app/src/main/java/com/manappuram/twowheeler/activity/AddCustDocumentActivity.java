@@ -52,7 +52,7 @@ public class AddCustDocumentActivity extends AppCompatActivity {
 
     ActivityAddCustDocumentBinding binding;
     LoginViewModel viewModel;
-    String name = "", dob = "", age = "", profession = "", address = "", pincode = "", quot_amount = "", mobile = "";
+    String name = "", dob = "", age = "", profession = "", loan_amount = "", state_id = "", quot_amount = "", district_id = "", branch_id = "";
     String cust_name = "";
     String doc_seq = "";
     String cust_mob = "";
@@ -99,6 +99,13 @@ public class AddCustDocumentActivity extends AppCompatActivity {
         cust_mob = getIntent().getStringExtra("cust_mob");
         pancardNo = getIntent().getStringExtra("pancardNo");
         cibil_score= getIntent().getStringExtra("cibil_score");
+        profession= getIntent().getStringExtra("profession");
+        loan_amount = getIntent().getStringExtra("loan_amount");
+        state_id = getIntent().getStringExtra("state_id");
+        district_id = getIntent().getStringExtra("district_id");
+        branch_id = getIntent().getStringExtra("branch_id");
+        dob = getIntent().getStringExtra("dob");
+
 
 
         final ImagePopup imagePopup = new ImagePopup(this);
@@ -472,6 +479,13 @@ public class AddCustDocumentActivity extends AppCompatActivity {
         request.setCust_name(cust_name);
         request.setCust_mob(cust_mob);
         request.setDoc_seq(doc_seq);
+        request.setState_id(state_id); // 06 Oct
+        request.setDistrict_id(district_id);
+        request.setLoan_amt(loan_amount);
+        request.setProfession(profession);
+        request.setUpdated_by(empCode);
+        request.setBranch_id(branch_id);
+        request.setDob(dob);
         request.setSessionId(sessionId);
         viewModel.generateCustID(request);
         viewModel.getCustIDCreationResponseMutableLiveData().observe(this, custIDResponse -> {

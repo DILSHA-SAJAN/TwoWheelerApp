@@ -148,7 +148,7 @@ public class LoginActivity extends BaseActivity {
                     editor.putString("sessionId", dealerLoginResponse.dealerDetails.sessionid);
                     editor.putString("name", dealerLoginResponse.dealerDetails.ownername);
                     editor.putString("postId", "dealer");
-                    //   editor.putString("departId", dealerLoginResponse.dealerDetails.deptId);
+                    editor.putString("brId", dealerLoginResponse.dealerDetails.branch_id);
                     //   editor.putString("areaId", dealerLoginResponse.dealerDetails.areaId);
                     //   editor.putString("regionId", dealerLoginResponse.dealerDetails.regionId);
                     //   editor.putString("zoneId", dealerLoginResponse.dealerDetails.zoneId);

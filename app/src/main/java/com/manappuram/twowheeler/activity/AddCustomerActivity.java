@@ -602,6 +602,15 @@ public class AddCustomerActivity extends AppCompatActivity {
                     intent.putExtra("cust_mob", addCustomerResponse.getMobile());
                     intent.putExtra("doc_seq", addCustomerResponse.getDoc_sequence());
                     intent.putExtra("cibil_score", score);
+                    intent.putExtra("profession", binding.etProfession.getText().toString());
+                    intent.putExtra("loan_amount",binding.etLoanAmount.getText().toString());
+                    intent.putExtra("state_id", selectedStateID);
+                    intent.putExtra("district_id",selectedDistID);
+                    intent.putExtra("branch_id",brId);
+                    intent.putExtra("dob", binding.tvDate.getText().toString());
+
+
+
 
                     startActivity(intent);
                     // finish();

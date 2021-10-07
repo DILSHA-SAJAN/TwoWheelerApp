@@ -109,6 +109,17 @@ public class IndividualCustResponse extends BaseResponse {
         @SerializedName("rating")
         @Expose
         public String rating;
+        @SerializedName("down_payment")
+        @Expose
+        public String down_payment;
+
+        public String getDown_payment() {
+            return down_payment;
+        }
+
+        public void setDown_payment(String down_payment) {
+            this.down_payment = down_payment;
+        }
 
         public String getEligible_sts() {
             return eligible_sts;

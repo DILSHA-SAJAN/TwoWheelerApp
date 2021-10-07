@@ -176,6 +176,7 @@ public class SalesManagerCustDetailsActivity extends AppCompatActivity {
                         binding.etCibilScore.setText(customerListResponse1.getCustList().get(i).getCibil_score());
                         binding.etEligibility.setText(customerListResponse1.getCustList().get(i).getEligible_sts());
                         binding.etRating.setText(customerListResponse1.getCustList().get(i).getRating());
+                        binding.etDownPayment.setText(customerListResponse1.getCustList().get(i).getDown_payment());
                         uploaded_by = customerListResponse1.getCustList().get(i).getUploaded_by();
                         panCard = customerListResponse1.getCustList().get(i).getPan_no();
                     }

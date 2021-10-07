@@ -72,7 +72,8 @@
         android:id="@+id/group12">
         <item
             android:id="@+id/nav_mis_report"
-            android:title="Mis Reports" />
+            android:title="MIS Reports"
+            android:icon="@drawable/customer_list"/>
 
     </group>
 

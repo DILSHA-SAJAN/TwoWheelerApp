@@ -258,6 +258,8 @@ public class CreditManagerCustDetailsActivity extends AppCompatActivity {
                         binding.etTenure.setText(customerListResponse1.getCustList().get(i).getTenure());
                         binding.etEligibility.setText(customerListResponse1.getCustList().get(i).getEligible_sts());
                         binding.etRating.setText(customerListResponse1.getCustList().get(i).getRating());
+                        binding.etDownPayment.setText(customerListResponse1.getCustList().get(i).getDown_payment());
+
 
                     }
 

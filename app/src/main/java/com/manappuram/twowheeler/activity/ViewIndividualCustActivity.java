@@ -117,6 +117,8 @@ public class ViewIndividualCustActivity extends AppCompatActivity {
                         binding.etEligible.setText(customerListResponse1.getCustList().get(i).getEligible_sts());
                         binding.etRating.setText(customerListResponse1.getCustList().get(i).getRating());
                         uploaded_by = customerListResponse1.getCustList().get(i).getUploaded_by();
+                        binding.etInternalScore.setText(customerListResponse1.getCustList().get(i).getTot_int_score());
+                        binding.etDownPayment.setText(customerListResponse1.getCustList().get(i).getDown_payment());
                         panCard = customerListResponse1.getCustList().get(i).getPan_no();
                     }
 

@@ -90,19 +90,15 @@ public class InternalScoreCardActivity extends AppCompatActivity {
                 //attach cibil score with result
                 if (cibil_score.equals(("000-1"))) {
                     cibil_score = "-1";
-                    total_mark += 3;
-                } else if (Integer.parseInt(cibil_score) > 850) {
                     total_mark += 5;
-                } else if (Integer.parseInt(cibil_score) >= 768) {
-                    total_mark += 4;
-                } else if (Integer.parseInt(cibil_score) >= 752) {
-                    total_mark += 3;
-                } else if (Integer.parseInt(cibil_score) >= 733) {
-                    total_mark += 2;
-                } else if (Integer.parseInt(cibil_score) >= 690) {
-                    total_mark += 1;
-                } else if (Integer.parseInt(cibil_score) < 690) {
-                    //cibil_mark = "0";
+                } else if (Integer.parseInt(cibil_score) > 700) {
+                    total_mark += 10;
+                } else if (Integer.parseInt(cibil_score) < 550) {
+                    total_mark += 5;
+                } else if ((Integer.parseInt(cibil_score) > 550) && (Integer.parseInt(cibil_score) < 700)) {
+                    total_mark += 8;
+                } else{
+                    total_mark += 0;
                 }
             }
 
