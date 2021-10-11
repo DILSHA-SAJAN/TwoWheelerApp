@@ -249,7 +249,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         request.setPinCode(binding.etPincode.getText().toString());
         request.setResidenceType("01");
         request.setStateCode(cibilStateCode);
-        request.setPurpose("06"); //consumer loan
+        request.setPurpose("13"); //consumer loan
         request.setAmount(binding.etQuotAmount.getText().toString());
         request.setScoreType("01");
         request.setGstStateCode(cibilStateCode);
