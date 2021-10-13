@@ -45,6 +45,7 @@ import com.manappuram.twowheeler.response.DocViewResponse;
 import com.manappuram.twowheeler.response.IndividualCustResponse;
 import com.manappuram.twowheeler.response.IndividualDealerResponsse;
 import com.manappuram.twowheeler.response.LoginResponse;
+import com.manappuram.twowheeler.response.MisReportResponse;
 import com.manappuram.twowheeler.response.OtherVerticalsResponse;
 import com.manappuram.twowheeler.response.Output.CibilScoreOutput;
 import com.manappuram.twowheeler.response.PostOfficeResponse;
@@ -299,13 +300,20 @@ public class LoginRepository extends BaseRepository {
         }).enqueue();
     }
 
-    // Customer ID creation June 22
+    // Customer ID creation June 22 edited 06 Oct
     public void createCustID(CustIDCreationRequest request, SuccessResponse successResponse) {
         Call<CustIDCreationResponse> call = RetrofitClient.getAPIInterface().custIDCreation(
                 request.getFlag(),
                 request.getCust_name(),
                 request.getCust_mob(),
                 request.getDoc_seq(),
+                request.getState_id(),
+                request.getDistrict_id(),
+                request.getLoan_amt(),
+                request.getProfession(),
+                request.getUpdated_by(),
+                request.getBranch_id(),
+                request.getDob(),
                 request.getSessionId());
 
         new RetrofitRequest<>(call, new ResponseListener<CustIDCreationResponse>() {
@@ -1010,6 +1018,34 @@ public class LoginRepository extends BaseRepository {
 
             @Override
             public void onResponse(BaseResponse response, Headers headers) {
+                if (null != successResponse) {
+                    successResponse.onResponse(response);
+                }
+            }
+
+            @Override
+            public void onError(int status, BaseResponse errors) {
+                errorsMutable.postValue(new Event<>(errors));
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                failMessageMutable.postValue(new Event<>(throwable.getMessage()));
+            }
+        }).enqueue();
+    }
+
+    // send Internal Score 05 OCT
+    public void getMISData(OtherVerticalsRequest request, SuccessResponse successResponse){
+        Call<MisReportResponse> call = RetrofitClient.getAPIInterface().getMISReport(
+                request.getFlag(),
+                request.getSessionId());
+
+        new RetrofitRequest<>(call, new ResponseListener<MisReportResponse>() {
+
+
+            @Override
+            public void onResponse(MisReportResponse response, Headers headers) {
                 if (null != successResponse) {
                     successResponse.onResponse(response);
                 }

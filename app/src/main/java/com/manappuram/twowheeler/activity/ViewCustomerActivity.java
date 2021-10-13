@@ -132,6 +132,10 @@ public class ViewCustomerActivity extends AppCompatActivity {
                         i = new Intent(ViewCustomerActivity.this, CustomerApprovalActivity.class);
                         startActivity(i);
                         break;
+                    case R.id.nav_mis_report:
+                        i = new Intent(ViewCustomerActivity.this, MisReportActivity.class);
+                        startActivity(i);
+                        break;
                     case R.id.nav_logout:
 
 
@@ -162,7 +166,7 @@ public class ViewCustomerActivity extends AppCompatActivity {
                 break;
 
             case "dealer":
-             //   nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);
+                //   nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);
                 break;
             default:
 //                Toast.makeText(this, "Not Sales Officer " +postId, Toast.LENGTH_SHORT).show();
@@ -188,8 +192,7 @@ public class ViewCustomerActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
-                }
-                else{
+                } else {
                     Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -201,7 +204,6 @@ public class ViewCustomerActivity extends AppCompatActivity {
                 Toast.makeText(ViewCustomerActivity.this, error.getContent().getResult(), Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
     }
@@ -252,7 +254,7 @@ public class ViewCustomerActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ViewIndividualCustActivity.class);
                 intent.putExtra("cust_id", cust_id);
                 startActivity(intent);
-              //  finish();
+                //  finish();
             }
         };
 
@@ -298,7 +300,7 @@ public class ViewCustomerActivity extends AppCompatActivity {
 //        } else {
 //            // at last we are passing that filtered
 //            // list to our adapter class.
-            adapter.filterList(filteredlist);
+        adapter.filterList(filteredlist);
 //        }
     }
 

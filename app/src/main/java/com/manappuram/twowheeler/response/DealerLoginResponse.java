@@ -47,6 +47,17 @@ public class DealerLoginResponse extends BaseResponse {
         @SerializedName("state")
         @Expose
         public String state;
+        @SerializedName("branch_id")
+        @Expose
+        public String branch_id;
+
+        public String getBranch_id() {
+            return branch_id;
+        }
+
+        public void setBranch_id(String branch_id) {
+            this.branch_id = branch_id;
+        }
 
         public String getDealerCode() {
             return dealerCode;

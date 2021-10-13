@@ -127,6 +127,11 @@ public class CustomerApprovalActivity extends AppCompatActivity {
                         startActivity(i);
                         break;
 
+                    case R.id.nav_mis_report:
+                        i = new Intent(CustomerApprovalActivity.this, MisReportActivity.class);
+                        startActivity(i);
+                        break;
+
                     case R.id.nav_logout:
 
 

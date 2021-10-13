@@ -249,7 +249,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         request.setPinCode(binding.etPincode.getText().toString());
         request.setResidenceType("01");
         request.setStateCode(cibilStateCode);
-        request.setPurpose("06"); //consumer loan
+        request.setPurpose("13"); //consumer loan
         request.setAmount(binding.etQuotAmount.getText().toString());
         request.setScoreType("01");
         request.setGstStateCode(cibilStateCode);
@@ -602,6 +602,15 @@ public class AddCustomerActivity extends AppCompatActivity {
                     intent.putExtra("cust_mob", addCustomerResponse.getMobile());
                     intent.putExtra("doc_seq", addCustomerResponse.getDoc_sequence());
                     intent.putExtra("cibil_score", score);
+                    intent.putExtra("profession", binding.etProfession.getText().toString());
+                    intent.putExtra("loan_amount",binding.etLoanAmount.getText().toString());
+                    intent.putExtra("state_id", selectedStateID);
+                    intent.putExtra("district_id",selectedDistID);
+                    intent.putExtra("branch_id",brId);
+                    intent.putExtra("dob", binding.tvDate.getText().toString());
+
+
+
 
                     startActivity(intent);
                     // finish();

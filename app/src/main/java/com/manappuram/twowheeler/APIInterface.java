@@ -13,6 +13,7 @@ import com.manappuram.twowheeler.response.DocViewResponse;
 import com.manappuram.twowheeler.response.IndividualCustResponse;
 import com.manappuram.twowheeler.response.IndividualDealerResponsse;
 import com.manappuram.twowheeler.response.LoginResponse;
+import com.manappuram.twowheeler.response.MisReportResponse;
 import com.manappuram.twowheeler.response.OtherVerticalsResponse;
 import com.manappuram.twowheeler.response.Output.CibilScoreOutput;
 import com.manappuram.twowheeler.response.PostOfficeResponse;
@@ -198,6 +199,13 @@ public interface APIInterface {
                                                 @Field("cust_name") String cust_name,
                                                 @Field("cust_mob") String cust_mob,
                                                 @Field("doc_seq") String doc_seq,
+                                                @Field("state_id") String state_id,
+                                                @Field("district_id") String district_id,
+                                                @Field("loan_amt") String loan_amt,
+                                                @Field("profession") String profession,
+                                                @Field("updated_by") String updated_by,
+                                                @Field("branch_id") String branch_id,
+                                                @Field("dob") String dob,
                                                 @Field("sessionId") String sessionId);
 
     // June 23 Get the list of Customers to be Approved by National Head
@@ -296,4 +304,10 @@ public interface APIInterface {
                                          @Field("total") String total,
                                          @Field("sessionId") String sessionId
     );
+
+    // MIS Report Dashboard 05 Oct 2021
+    @POST("GetTWLMISReport")
+    @FormUrlEncoded
+    Call<MisReportResponse> getMISReport(@Field("flag") String flag,
+                                         @Field("sessionId") String sessionId);
 }

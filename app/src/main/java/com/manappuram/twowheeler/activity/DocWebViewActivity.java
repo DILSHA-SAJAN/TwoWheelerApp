@@ -14,8 +14,8 @@ import com.manappuram.twowheeler.utils.Utility;
 public class DocWebViewActivity extends AppCompatActivity {
 
     ActivityDocWebViewBinding binding;
-    String docUrl = "https://onpay.online.manappuram.com/OtherVerticalService/Images/"; // UAT
-   // String docUrl = "https://online.manappuram.com/OtherVerticalService/Images/"; // Production
+    String docUrl = "https://onpay.online.manappuram.com/TwowheelerService/Images/"; // UAT
+   // String docUrl = "https://online.manappuram.com/TwowheelerService/Images/"; // Production
     String doc_name = "";
 
     @Override

@@ -21,15 +21,11 @@ public class ViewDealerItemAdapter extends RecyclerView.Adapter<ViewDealerItemAd
     Context context;
     public ArrayList<ViewDealerListResponse.DealerList> prList;
     public ViewDealerActivity.DealerIDSelectListener listener;
-    //
 
     public ViewDealerItemAdapter(Context context, ArrayList<ViewDealerListResponse.DealerList> prList) {
         this.context = context;
         this.prList = prList;
     }
-
-
-
     @Override
     public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         ItemViewDealerDetailsBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_view_dealer_details, parent, false);

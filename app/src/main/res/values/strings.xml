@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CdlApp</string>
+    <string name="app_name">TwoWheeler</string>
     <string name="cdl">CDL</string>
     <string name="view_attachments">View Attachments</string>
     <string name="view_questionnaire">Add Questionnaire</string>
