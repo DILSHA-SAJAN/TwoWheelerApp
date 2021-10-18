@@ -16,7 +16,7 @@
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_margin="20dp"
-        android:background="@drawable/cdl_logo"/>
+        android:background="@drawable/twl_logo_user"/>
 
 
     <!--<TextView
