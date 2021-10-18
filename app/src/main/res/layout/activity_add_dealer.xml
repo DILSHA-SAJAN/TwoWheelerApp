@@ -121,6 +121,7 @@
                                 android:id="@+id/et_gst"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:maxLength="15"
                                 android:fontFamily="@font/rubik_variable_font_wght"
                                 android:textSize="16dp" />
 

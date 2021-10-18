@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.chathuralakmal:AndroidImagePopup:1.2.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3421cfafa31370b43919ab4bbe5d2e27/jetified-AndroidImagePopup-1.2.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3421cfafa31370b43919ab4bbe5d2e27/jetified-AndroidImagePopup-1.2.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3421cfafa31370b43919ab4bbe5d2e27/jetified-AndroidImagePopup-1.2.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0695c3aaeaaee4b18549c4a330adc344/jetified-AndroidImagePopup-1.2.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0695c3aaeaaee4b18549c4a330adc344/jetified-AndroidImagePopup-1.2.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0695c3aaeaaee4b18549c4a330adc344/jetified-AndroidImagePopup-1.2.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chathuralakmal/AndroidImagePopup/1.2.2/13f981c6bff4470035e3c847dd1fcf571df5f79f/AndroidImagePopup-1.2.2-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chathuralakmal/AndroidImagePopup/1.2.2/b600e7773cbdd8402fd43973b3a53afb877226f6/AndroidImagePopup-1.2.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
