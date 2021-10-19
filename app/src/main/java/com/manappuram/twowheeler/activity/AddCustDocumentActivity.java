@@ -197,6 +197,10 @@ public class AddCustDocumentActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed(){
+
+    }
     // Function to validate the PAN Card number.
     public static boolean isValidPanCardNo(String panCardNo) {
         String regex = "[A-Z]{5}[0-9]{4}[A-Z]{1}";

@@ -181,6 +181,10 @@ public class AddDealerDocumentActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed(){
+
+    }
 
     private boolean isValid() {
         if (PANCOPY.equals("") || AADHARCOPY.equals("") || QUESTIONCOPY.equals("") || BANKCOPY.equals("") || AGREECOPY.equals("") || PLEDGECOPY.equals("")) {
@@ -249,6 +253,7 @@ public class AddDealerDocumentActivity extends AppCompatActivity {
                     Toast.makeText(this, dealerIDResponse.getResult() + ":" + dealerIDResponse.getDealer_id(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, ViewDealerActivity.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(this, dealerIDResponse.getStatus() + "" + dealerIDResponse.getResult() + "" + dealerIDResponse.getDealer_id(), Toast.LENGTH_SHORT).show();
                 }

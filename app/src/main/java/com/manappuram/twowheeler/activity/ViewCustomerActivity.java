@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,6 +44,7 @@ public class ViewCustomerActivity extends AppCompatActivity {
     public String sessionId = "";
     public String empCode = "";
     public String postId = "";
+    public String deptId = "";
     public String selectedProduct = "";
 
     ArrayList<ViewCustomerListResponse.custList> cust_list = new ArrayList<>();
@@ -63,6 +65,7 @@ public class ViewCustomerActivity extends AppCompatActivity {
         sessionId = sharedPreferences.getString("sessionId", "");
         empCode = sharedPreferences.getString("empCode", "");
         postId = sharedPreferences.getString("postId", "");
+        deptId = sharedPreferences.getString("departId", "");
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_customer);
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
@@ -152,18 +155,35 @@ public class ViewCustomerActivity extends AppCompatActivity {
 
     }
 
+
     private void checkEmpPermission() {
         Menu nav_Menu = navigationView.getMenu();
         switch (postId) {
             case "636": //SO
-            case "-129": //SO
-                nav_Menu.findItem(R.id.nav_add_dealer).setVisible(true);
-                nav_Menu.findItem(R.id.nav_view_dealer).setVisible(true);
-                nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);
+                if (deptId.equals("640")) {
+                    nav_Menu.findItem(R.id.nav_add_dealer).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_view_dealer).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);
+                }
+
                 break;
+
+
             case "-354": //Credit Head
-                nav_Menu.findItem(R.id.nav_cust_approval).setVisible(true);
-                break;
+            case "-134":
+            case "-352":
+            case "708":
+            case "-137":
+            case "-129":
+            case "-366":
+            case "-351":
+            case "85": //Credit Head
+                if (deptId.equals("640")) {
+                    nav_Menu.findItem(R.id.nav_cust_approval).setVisible(true);
+                    break;
+                }
+
+
 
             case "dealer":
                 //   nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);

@@ -93,6 +93,8 @@ public class AddDealerActivity extends AppCompatActivity {
 
     }
 
+
+
     // Function to validate the AADHAR number.
     public static boolean isValidAadhar(String aadharNo) {
         String regex = "[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}";
@@ -324,7 +326,7 @@ public class AddDealerActivity extends AppCompatActivity {
             if (addDealerResponse != null) {
 
                 if (addDealerResponse.getStatus().equals("111")) {
-                    Toast.makeText(this, addDealerResponse.getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, addDealerResponse.getResult(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, AddDealerDocumentActivity.class);
                     intent.putExtra("owner_name", addDealerResponse.getOwner_name());
                     intent.putExtra("MOB", addDealerResponse.getMOB());
@@ -333,8 +335,9 @@ public class AddDealerActivity extends AppCompatActivity {
                     startActivity(intent);
 
 
+
                 } else {
-                    Toast.makeText(this, addDealerResponse.getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, addDealerResponse.getResult(), Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -343,7 +346,7 @@ public class AddDealerActivity extends AppCompatActivity {
 
                 if (error.getContent() != null) {
 
-                    Toast.makeText(this, error.getContent().getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, error.getContent().getResult(), Toast.LENGTH_LONG).show();
                 }
             });
         });
@@ -371,8 +374,8 @@ public class AddDealerActivity extends AppCompatActivity {
             Toast.makeText(this, "Enter Owner Name", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (binding.etGst.getText().toString().equals("")) {
-            Toast.makeText(this, "Enter GST No", Toast.LENGTH_SHORT).show();
+        if (binding.etGst.getText().toString().equals("") || binding.etGst.getText().length()!=15) {
+            Toast.makeText(this, "GST Number not valid", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (binding.etPan.getText().toString().equals("") || !isValidPanCardNo(binding.etPan.getText().toString())) {

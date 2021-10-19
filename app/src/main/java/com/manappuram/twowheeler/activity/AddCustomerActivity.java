@@ -184,6 +184,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
     }
 
+
     private void getAddress() {
         Log.v("thudangi", "thudangi");
         String[] address = binding.etAddress.getText().toString().split("\\r?\\n");
@@ -274,17 +275,17 @@ public class AddCustomerActivity extends AppCompatActivity {
                             score = "000-1";
                         }
 
-                        Toast.makeText(this, "CIBIL score is " + score, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "CIBIL score is " + score, Toast.LENGTH_LONG).show();
                         addCustomer();
 
 
                     } else {
                         Utility.cancelProgressbar();
-                        Toast.makeText(this, "CIBIL score Calculation Error! Please retry!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "CIBIL score Calculation Error! Please retry!", Toast.LENGTH_LONG).show();
                         // Toast.makeText(this, "" + cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, cibilScoreOutput.getApiStatus() + " : " + cibilScoreOutput.getResponseMsg(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, cibilScoreOutput.getApiStatus() + " : " + cibilScoreOutput.getResponseMsg(), Toast.LENGTH_LONG).show();
                 }
 
 
@@ -296,7 +297,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
             if (error.getContent() != null) {
                 Utility.cancelProgressbar();
-                Toast.makeText(this, error.getContent().getResult(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, error.getContent().getResult(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -588,7 +589,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
             if (addCustomerResponse != null) {
                 if (addCustomerResponse.getStatus().equals("111")) {
-                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), AddCustDocumentActivity.class);
 //                    intent.putExtra("name", binding.etFullName.getText().toString());
 //                    intent.putExtra("dob", binding.tvDate.getText().toString());
@@ -615,7 +616,7 @@ public class AddCustomerActivity extends AppCompatActivity {
                     startActivity(intent);
                     // finish();
                 } else {
-                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -624,7 +625,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
                 if (error.getContent() != null) {
                     //    Utility.cancelProgressbar();
-                    Toast.makeText(AddCustomerActivity.this, error.getContent().getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCustomerActivity.this, error.getContent().getResult(), Toast.LENGTH_LONG).show();
                 }
             });
 
