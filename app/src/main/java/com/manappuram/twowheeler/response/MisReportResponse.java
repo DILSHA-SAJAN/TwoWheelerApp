@@ -41,6 +41,17 @@ public class MisReportResponse extends BaseResponse {
         @SerializedName("tot_int_score")
         public String tot_int_score;
 
+        @SerializedName("remarks")
+        public String remarks;
+
+        public String getRemarks() {
+            return remarks;
+        }
+
+        public void setRemarks(String remarks) {
+            this.remarks = remarks;
+        }
+
         public String getCust_name() {
             return cust_name;
         }

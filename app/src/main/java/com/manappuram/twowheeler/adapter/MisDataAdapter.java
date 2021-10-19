@@ -49,6 +49,7 @@ public class MisDataAdapter extends RecyclerView.Adapter<MisDataAdapter.ViewHold
         holder.binding.colditem.setText((dtlllist.get(position)).getState());
         holder.binding.notreachitem.setText((dtlllist.get(position)).getBRANCH_NAME());
         holder.binding.notinterestitem.setText((dtlllist.get(position)).getTot_int_score());
+        holder.binding.laststatusitem.setText((dtlllist.get(position)).getRemarks());
 
     }
 

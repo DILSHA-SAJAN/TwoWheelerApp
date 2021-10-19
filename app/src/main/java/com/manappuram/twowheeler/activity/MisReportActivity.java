@@ -175,6 +175,7 @@ public class MisReportActivity extends AppCompatActivity {
             sheet.addCell(new Label(4,0,"State"));
             sheet.addCell(new Label(5,0,"Branch Name"));
             sheet.addCell(new Label(6,0,"Internal Score"));
+            sheet.addCell(new Label(7,0,"Status"));
             for (int i = 0; i < mis_list.size(); i++) {
                 sheet.addCell(new Label(0, i + 1, mis_list.get(i).getCust_name()));
                 sheet.addCell(new Label(1, i + 1, mis_list.get(i).getCust_id()));
@@ -183,6 +184,7 @@ public class MisReportActivity extends AppCompatActivity {
                 sheet.addCell(new Label(4, i + 1, mis_list.get(i).getState()));
                 sheet.addCell(new Label(5, i +  1, mis_list.get(i).getBRANCH_NAME()));
                 sheet.addCell(new Label(6, i +  1,  mis_list.get(i).getTot_int_score()));
+                sheet.addCell(new Label(7, i +  1,  mis_list.get(i).getRemarks()));
 
             }
         } catch (Exception e) {
