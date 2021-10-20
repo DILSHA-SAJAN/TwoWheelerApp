@@ -156,7 +156,8 @@ public class AddCustomerActivity extends AppCompatActivity {
         binding.btnAddMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addMore();
+
+              //  addMore();
             }
         });
 
@@ -858,7 +859,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
 
                         binding.rlOthersType.setVisibility(View.GONE);
-                        binding.btnAddMore.setVisibility(View.VISIBLE);
+                       // binding.btnAddMore.setVisibility(View.VISIBLE);
                         binding.llSelectedLprList.setVisibility(View.VISIBLE);
 
                         prodid = otherVerticalsResponse.getProductList().get(position - 1).getProductId();
