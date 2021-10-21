@@ -97,7 +97,7 @@ public class InternalScoreCardActivity extends AppCompatActivity {
                     total_mark += 5;
                 } else if ((Integer.parseInt(cibil_score) > 550) && (Integer.parseInt(cibil_score) < 700)) {
                     total_mark += 8;
-                } else{
+                } else {
                     total_mark += 0;
                 }
             }
@@ -265,28 +265,41 @@ public class InternalScoreCardActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
 
+     //   Log.i("mExampleList[0]", "<==" + mExampleList.get(0));
 
         mDisplayList.add(mExampleList.get(0));
 
         mAdapter = new QuestionnaireAdapter(mDisplayList);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // Nivin code set cache
+        mRecyclerView.getRecycledViewPool().setMaxRecycledViews(0, (mExampleList.size()*2)+3);
+        mRecyclerView.setItemViewCacheSize((mExampleList.size()*2)+3);
+
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(new QuestionnaireAdapter.OnItemClickListener() {
             @Override
             public void onOptionOneClick(int position) {
                 selectOption(position, 0);
+                //  Log.d("poooos", String.valueOf(position));
             }
 
             @Override
             public void onOptionTwoClick(int position) {
                 selectOption(position, 1);
+                // Log.d("poooos1", String.valueOf(position));
             }
 
             @Override
             public void onSpinnerSelect(int position, int sposition) {
+                Log.i("SpinnerClkPstActvty","<=="+position+", "+sposition);
                 selectSpinnerOption(position, sposition);
+                Log.d("position", String.valueOf(position));
+                Log.d("sposition", String.valueOf(sposition));
+
+
             }
         });
     }
