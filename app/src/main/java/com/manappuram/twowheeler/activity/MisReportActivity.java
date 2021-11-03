@@ -1,18 +1,28 @@
 package com.manappuram.twowheeler.activity;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.provider.DocumentsContract;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,7 +35,10 @@ import com.manappuram.twowheeler.response.MisReportResponse;
 import com.manappuram.twowheeler.utils.Utility;
 import com.manappuram.twowheeler.viewModel.LoginViewModel;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 import jxl.Workbook;
@@ -47,9 +60,7 @@ public class MisReportActivity extends AppCompatActivity {
     ArrayList<MisReportResponse.MISReportList> mis_list = new ArrayList<>();
 
     //excel declaration begin
-    private String csv;
     private WritableWorkbook workbook;
-
 //excel declaration begin
 
     @Override
@@ -61,7 +72,8 @@ public class MisReportActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mis_report);
         viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         adapter = new MisDataAdapter(MisReportActivity.this, mis_list);
-        csv = (Environment.getExternalStorageDirectory().getAbsolutePath() + "/MyCsvFile.csv"); // Here csv file name is MyCsvFile.csv
+        //  csv = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+ csvFile); // Here csv file name is MyCsvFile.csv
+        //  File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
         loadingbar=new ProgressDialog(this);
         OtherVerticalsRequest request = new OtherVerticalsRequest();
         request.setFlag("GET_MIS_REPORT");
@@ -140,10 +152,16 @@ public class MisReportActivity extends AppCompatActivity {
     private void createExcelSheet() {
         //File futureStudioIconFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
 
-        String csvFile = "Report.xls";
+        // csvFile = "MIS_Report.xls";
+
+        String   filename = "MIS_Report_"
+                + (new SimpleDateFormat("yyyyMMdd_HHmmss", Locale
+                .getDefault())).format(new Date()) + ".xls";
+
         java.io.File futureStudioIconFile = new java.io.File(Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-                + "/" + csvFile);
+                + "/" + filename);
+        //String filepath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/"+csvFile;
         WorkbookSettings wbSettings = new WorkbookSettings();
         wbSettings.setLocale(new Locale("en", "EN"));
         try {
@@ -153,6 +171,39 @@ public class MisReportActivity extends AppCompatActivity {
             workbook.close();
             loadingbar.dismiss();
             Toast.makeText(MisReportActivity.this,"Download success",Toast.LENGTH_SHORT).show();
+            //new code
+
+            String CHANNEL_ID="MESSAGE";
+            String CHANNEL_NAME="MESSAGE";
+            NotificationManagerCompat manager=NotificationManagerCompat.from(MisReportActivity.this);
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+                NotificationChannel channel=new NotificationChannel(CHANNEL_ID,CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+                manager.createNotificationChannel(channel);
+            }
+            Uri uri = Uri.parse(futureStudioIconFile.getPath()); //Tried both file.getAbsolutePath(), getCanonicalPath() too
+            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+
+            intent.setDataAndType(uri, DocumentsContract.Document.MIME_TYPE_DIR);
+            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent , PendingIntent.FLAG_UPDATE_CURRENT);
+
+            Notification notification = new NotificationCompat.Builder(MisReportActivity.this,CHANNEL_ID)
+                    .setSmallIcon(R.mipmap.twl_logo2)
+                    .setContentTitle("Excel Download completed")
+                    .setContentText(filename)
+                    .setSubText("Tap to view the file.")
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.twl_logo2))
+                    .build();
+
+            manager.notify(getRandomNumber(),notification);
+
+
+//new code
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -163,7 +214,7 @@ public class MisReportActivity extends AppCompatActivity {
     private void createFirstSheet(ArrayList<MisReportResponse.MISReportList> mis_list) {
         try {
 
-            WritableSheet sheet = workbook.createSheet("Report", 0);
+            WritableSheet sheet = workbook.createSheet("MIS_Report", 0);
             // column and row title
 
             sheet.setColumnView(0, (15 * 400));
@@ -198,7 +249,12 @@ public class MisReportActivity extends AppCompatActivity {
         void onitemClick(String dealer_id);
     }
 
-
+    private static int getRandomNumber() {
+        Date dd= new Date();
+        SimpleDateFormat ft =new SimpleDateFormat ("mmssSS");
+        String s=ft.format(dd);
+        return Integer.parseInt(s);
+    }
 
 
 

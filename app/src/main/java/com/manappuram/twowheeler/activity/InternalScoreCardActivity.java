@@ -103,7 +103,7 @@ public class InternalScoreCardActivity extends AppCompatActivity {
             }
 
             if (result != null && result.length() > 0 && result.charAt(result.length() - 1) == '^') {
-                result = result.substring(0, result.length() - 1);
+                result = result.substring(0, result.length() - 1)+'^';
             }
 
             Log.e("Result", result);
