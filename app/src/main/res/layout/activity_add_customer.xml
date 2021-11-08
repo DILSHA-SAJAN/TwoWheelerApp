@@ -253,8 +253,7 @@
                                 android:id="@+id/et_houseName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-                                android:fontFamily="@font/rubik_variable_font_wght"
+                               android:fontFamily="@font/rubik_variable_font_wght"
                                 android:importantForAutofill="no" />
 
                         </com.google.android.material.textfield.TextInputLayout>

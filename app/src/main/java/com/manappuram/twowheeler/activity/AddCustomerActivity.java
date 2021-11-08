@@ -265,16 +265,21 @@ public class AddCustomerActivity extends AppCompatActivity {
         viewModel.getCibilResponseMutableLiveData().observe(this, cibilScoreOutput -> {
 
             if (cibilScoreOutput != null) {
-
+                Log.v("keri","keri");
                 if (cibilScoreOutput.getStatus().equals("SUCCESS")) {
+                    Log.v("jayichu","jayichu");
                     if (cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess().equals("True")) {
 
+                        Log.v("adyam","adyam");
+
                         score = cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getBureauResponseXml().getCreditReport().getScoreSegment().getScore();
+
+                        Log.v("cibscore",score);
                         Utility.cancelProgressbar();
 
-                        if (score == null) {
-                            score = "000-1";
-                        }
+//                        if (score == null) {
+//                            score = "000-1";
+//                        }
 
                         Toast.makeText(this, "CIBIL score is " + score, Toast.LENGTH_LONG).show();
                         addCustomer();
@@ -282,8 +287,8 @@ public class AddCustomerActivity extends AppCompatActivity {
 
                     } else {
                         Utility.cancelProgressbar();
-                        Toast.makeText(this, "CIBIL score Calculation Error! Please retry!", Toast.LENGTH_LONG).show();
-                        // Toast.makeText(this, "" + cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess(), Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(this, "CIBIL score Calculation Error! Please retry!", Toast.LENGTH_LONG).show();
+                         Toast.makeText(this, "" + cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(this, cibilScoreOutput.getApiStatus() + " : " + cibilScoreOutput.getResponseMsg(), Toast.LENGTH_LONG).show();
