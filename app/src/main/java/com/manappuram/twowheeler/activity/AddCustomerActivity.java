@@ -270,9 +270,10 @@ public class AddCustomerActivity extends AppCompatActivity {
                     Log.v("jayichu","jayichu");
                     if (cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess().equals("True")) {
 
-                        Log.v("adyam","adyam");
 
-                        score = cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getBureauResponseXml().getCreditReport().getScoreSegment().getScore();
+                 //       binding.etCheckCibil.setText(cibilScoreOutput.getData().toString());
+
+                        score = cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getBureauResponseXml().getCreditReport().getScoreSegment().getScore().replaceFirst("^0+(?!$)", "");
 
                         Log.v("cibscore",score);
                         Utility.cancelProgressbar();
@@ -739,9 +740,10 @@ public class AddCustomerActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             return false;
         }
-        if (ageInt < 23 || ageInt > 65) {
+        if (ageInt < 21 || ageInt > 65) {
 
-            Toast.makeText(this, "Age Should be between 23 and 65", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, "Age Should be between 21 and 65", Toast.LENGTH_SHORT).show();
             return false;
         }
 

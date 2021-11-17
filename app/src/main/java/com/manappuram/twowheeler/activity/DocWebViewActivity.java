@@ -16,7 +16,7 @@ public class DocWebViewActivity extends AppCompatActivity {
     ActivityDocWebViewBinding binding;
  //   String docUrl = "https://onpay.online.manappuram.com/TwowheelerService/Images/"; // UAT
     String docUrl = "https://online.manappuram.com/TwowheelerService/Images/"; // Production
-  // String docUrl = "https://uatonpay.manappuram.com/TwowheelerService/Images/"; // Cloud
+ //  String docUrl = "https://uatonpay.manappuram.com/TwowheelerService/Images/"; // Cloud
     String doc_name = "";
 
     @Override

@@ -13,8 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CIBILRetrofitClient {
   //  public static String BASE_URL ="https://mac.mactech.net.in/cibilapi/"; // UAT
-  //  public static String BASE_URL ="https://unsecurepl.manappuram.com/tw/CIBILAPI/"; // Production
-    public static String BASE_URL ="https://uatunsecurepl.manappuram.com/tw/CIBILAPI/"; // Cloud
+    public static String BASE_URL ="https://unsecurepl.manappuram.com/tw/CIBILAPI/"; // Production
+ //   public static String BASE_URL ="https://uatunsecurepl.manappuram.com/tw/CIBILAPI/"; // Cloud
 
 
     private static CIBILRetrofitClient sInstance;
