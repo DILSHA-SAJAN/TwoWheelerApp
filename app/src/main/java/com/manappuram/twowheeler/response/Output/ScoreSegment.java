@@ -2,30 +2,30 @@ package com.manappuram.twowheeler.response.Output;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+import com.manappuram.twowheeler.BuildConfig;
 public class ScoreSegment {
-//    @SerializedName("length")
-    @SerializedName("Length")
+    @SerializedName("length")
+    //@SerializedName("Length")//Uppercase for uat .check and uncomment all
     @Expose
     private String length;
-//    @SerializedName("scoreName")
-    @SerializedName("ScoreName")
+    @SerializedName("scoreName")
+    //@SerializedName("ScoreName")
     @Expose
     private String scoreName;
-//    @SerializedName("scoreCardName")
-    @SerializedName("ScoreCardName")
+    @SerializedName("scoreCardName")
+    //@SerializedName("ScoreCardName")
     @Expose
     private String scoreCardName;
-//    @SerializedName("scoreCardVersion")
-    @SerializedName("ScoreCardVersion")
+    @SerializedName("scoreCardVersion")
+    //@SerializedName("ScoreCardVersion")
     @Expose
     private String scoreCardVersion;
-//    @SerializedName("scoreDate")
-    @SerializedName("ScoreDate")
+    @SerializedName("scoreDate")
+   // @SerializedName("ScoreDate")
     @Expose
     private String scoreDate;
-//    @SerializedName("score")
-    @SerializedName("Score")
+    @SerializedName("score")
+    //@SerializedName("Score")
     @Expose
     private String score;
     @SerializedName("ReasonCode1FieldLength")

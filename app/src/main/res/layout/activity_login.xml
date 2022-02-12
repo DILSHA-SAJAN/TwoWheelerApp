@@ -37,7 +37,7 @@
                         android:fontFamily="@font/rubik_medium"
                         android:gravity="center"
                         android:paddingTop="4dp"
-                        android:text="Two Wheeler Gold Backed Dealers App"
+                        android:text="Gold Backed TW Loan Dealer App"
                         android:textColor="#383838"
                         android:textSize="26dp" />
 

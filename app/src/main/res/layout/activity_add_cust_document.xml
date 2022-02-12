@@ -1,78 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#FFDBB6"
+        android:orientation="vertical"
         tools:context=".MainActivity">
+
         <RelativeLayout
             android:id="@+id/topLayout"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_height="56dp"
-            >
+            android:layout_marginTop="20dp">
 
             <ImageView
                 android:id="@+id/btnBack"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:layout_marginStart="20dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/back_button_black"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back_button_black" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:gravity="center"
                 android:fontFamily="@font/rubik_bold"
+                android:gravity="center"
                 android:text="DOCUMENTS"
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_white_topcorner"
-            android:layout_marginTop="80dp">
+            android:layout_marginTop="80dp"
+            android:background="@drawable/bg_white_topcorner">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="vertical">
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:visibility="gone">
+                    android:layout_marginTop="24dp">
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ettest"
-                        android:hint="For testing">
+                        android:hint="CIBIL Score"
+                        android:visibility="gone">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_testing"
+                            android:id="@+id/etShowCibil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textMultiLine"
-                            android:textColor="@color/black"
+                            android:focusable="false"
                             android:fontFamily="@font/rubik_variable_font_wght"
-                            />
+                            android:textColor="@color/black" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -89,9 +92,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:focusable="false"
-                            android:textColor="@color/black"
                             android:fontFamily="@font/rubik_variable_font_wght"
-                            android:inputType="textCapCharacters"/>
+                            android:inputType="textCapCharacters"
+                            android:textColor="@color/black" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,17 +104,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
-                        android:textColor="#2E2E2E"
+                        android:fontFamily="@font/rubik_regular"
                         android:text="Upload Your PAN Card Photo"
-                        android:textSize="16dp"
-                        android:fontFamily="@font/rubik_regular">
+                        android:textColor="#2E2E2E"
+                        android:textSize="16dp">
 
                     </TextView>
-
 
 
                 </LinearLayout>
@@ -129,42 +132,44 @@
                         android:background="@drawable/view_black_border"
                         android:fontFamily="@font/rubik_medium"
                         android:gravity="center"
+                        android:padding="12dp"
                         android:paddingHorizontal="16dp"
                         android:paddingVertical="12dp"
-                        android:textSize="16dp"
-                        android:padding="12dp"
                         android:text="Upload Photo"
-                        android:textColor="#2F3D4A">
+                        android:textColor="#2F3D4A"
+                        android:textSize="16dp">
 
                     </TextView>
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:cardCornerRadius="8dp"
                         android:layout_margin="5dp"
-                        android:elevation="10dp">
+                        android:elevation="10dp"
+                        app:cardCornerRadius="8dp">
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:visibility="gone"
                                 android:id="@+id/pan_image"
                                 android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 android:background="@color/white"
-                                android:scaleType="centerCrop"/>
+                                android:scaleType="centerCrop"
+                                android:visibility="gone" />
 
                             <TextView
-                                android:visibility="gone"
-                                android:text="PAN Card"
                                 android:id="@+id/pan_imageid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignBottom="@+id/pan_image"
                                 android:background="#AA000000"
                                 android:padding="8dip"
-                                android:textColor="#ffffffff" />
+                                android:text="PAN Card"
+                                android:textColor="#ffffffff"
+                                android:visibility="gone" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -174,17 +179,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:textColor="#2E2E2E"
+                        android:fontFamily="@font/rubik_regular"
                         android:text="Upload Questionnaire"
-                        android:textSize="16dp"
-                        android:fontFamily="@font/rubik_regular">
+                        android:textColor="#2E2E2E"
+                        android:textSize="16dp">
 
                     </TextView>
-
 
 
                 </LinearLayout>
@@ -198,65 +203,66 @@
                         android:id="@+id/tv_upload_photo2"
                         android:layout_width="136dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/view_black_border"
                         android:fontFamily="@font/rubik_medium"
+                        android:gravity="center"
                         android:padding="12dp"
                         android:paddingHorizontal="16dp"
                         android:paddingVertical="12dp"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:textSize="16dp"
                         android:text="Upload Photo"
-                        android:textColor="#2F3D4A">
+                        android:textColor="#2F3D4A"
+                        android:textSize="16dp">
 
                     </TextView>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:cardCornerRadius="8dp"
                         android:layout_margin="5dp"
-                        android:elevation="10dp">
+                        android:elevation="10dp"
+                        app:cardCornerRadius="8dp">
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:visibility="gone"
                                 android:id="@+id/question_image"
                                 android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 android:background="@color/white"
-                                android:scaleType="centerCrop" />
+                                android:scaleType="centerCrop"
+                                android:visibility="gone" />
 
                             <TextView
-                                android:text="Questionnaire"
-                                android:visibility="gone"
                                 android:id="@+id/question_imageid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignBottom="@+id/question_image"
                                 android:background="#AA000000"
                                 android:padding="8dip"
-                                android:textColor="#ffffffff" />
+                                android:text="Questionnaire"
+                                android:textColor="#ffffffff"
+                                android:visibility="gone" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:textColor="#2E2E2E"
+                        android:fontFamily="@font/rubik_regular"
                         android:text="Upload Bank Statement"
-                        android:textSize="16dp"
-                        android:fontFamily="@font/rubik_regular">
+                        android:textColor="#2E2E2E"
+                        android:textSize="16dp">
 
                     </TextView>
 
@@ -271,47 +277,48 @@
                         android:id="@+id/tv_upload_bank_statement"
                         android:layout_width="136dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
                         android:background="@drawable/view_black_border"
                         android:fontFamily="@font/rubik_medium"
+                        android:gravity="center"
                         android:padding="12dp"
                         android:paddingHorizontal="16dp"
                         android:paddingVertical="12dp"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:textSize="16dp"
                         android:text="Upload Photo"
-                        android:textColor="#2F3D4A">
+                        android:textColor="#2F3D4A"
+                        android:textSize="16dp">
 
                     </TextView>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:cardCornerRadius="8dp"
                         android:layout_margin="5dp"
-                        android:elevation="10dp">
+                        android:elevation="10dp"
+                        app:cardCornerRadius="8dp">
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:visibility="gone"
                                 android:id="@+id/bank_image"
                                 android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 android:background="@color/white"
-                                android:scaleType="centerCrop" />
+                                android:scaleType="centerCrop"
+                                android:visibility="gone" />
 
                             <TextView
-                                android:text="Questionnaire"
-                                android:visibility="gone"
                                 android:id="@+id/bank_imageid"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignBottom="@+id/bank_image"
                                 android:background="#AA000000"
                                 android:padding="8dip"
-                                android:textColor="#ffffffff" />
+                                android:text="Questionnaire"
+                                android:textColor="#ffffffff"
+                                android:visibility="gone" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -328,14 +335,12 @@
                         android:layout_width="150dp"
                         android:layout_height="45dp"
                         android:background="@drawable/btn_confirm"
-                        android:text="Submit"
+                        android:fontFamily="@font/rubik_bold"
                         android:gravity="center"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/rubik_bold"/>
+                        android:text="Submit"
+                        android:textColor="@color/white" />
 
                 </RelativeLayout>
-
-
 
 
             </LinearLayout>
@@ -343,7 +348,6 @@
 
         </ScrollView>
     </RelativeLayout>
-
 
 
 </layout>

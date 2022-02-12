@@ -1,7 +1,10 @@
 package com.manappuram.twowheeler.adapter;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,10 @@ import java.util.List;
 
 public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdapter.QuestionnaireViewHolder> {
     private ArrayList<QuestionnaireItem> mExampleList;
+
+    public SharedPreferences.Editor editor;
+    public SharedPreferences sharedPreferences;
+    private int pppp;
 
     private OnItemClickListener mListener;
 //    private OnItemSelectedListener mListenerSelect;
@@ -64,7 +71,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
 
         public QuestionnaireViewHolder(View itemView, int type, final OnItemClickListener listener) {
             super(itemView);
-            if(type == VIEW_TYPE_QUESTION){
+            if (type == VIEW_TYPE_QUESTION) {
                 questionText = itemView.findViewById(R.id.text_question);
                 optionOne = itemView.findViewById(R.id.option_first);
                 optionTwo = itemView.findViewById(R.id.option_second);
@@ -72,7 +79,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
                 optionOne.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(listener!=null){
+                        if (listener != null) {
                             int position = getAdapterPosition();
                             if (position != RecyclerView.NO_POSITION) {
 
@@ -90,7 +97,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
                 optionTwo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(listener!=null){
+                        if (listener != null) {
                             int position = getAdapterPosition();
                             if (position != RecyclerView.NO_POSITION) {
 
@@ -105,18 +112,17 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
                     }
                 });
 
-            }
-            else if(type == VIEW_TYPE_ANSWER){
+            } else if (type == VIEW_TYPE_ANSWER) {
                 answerText = itemView.findViewById(R.id.text_answer);
-            }
-            else if(type == VIEW_TYPE_ANSWER_SPINNER){
+            } else if (type == VIEW_TYPE_ANSWER_SPINNER) {
                 questionText = itemView.findViewById(R.id.text_question_spinner);
                 optionSpinner = itemView.findViewById(R.id.spinner_option);
                 optionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int sposition, long id) {
                         int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION && sposition>0) {
+                        if (position != RecyclerView.NO_POSITION && sposition > 0) {
+                            Log.i("SpinnerClkPst", "<==" + position + ", " + sposition);
                             listener.onSpinnerSelect(position, sposition);
                         }
                     }
@@ -132,28 +138,28 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
 
     public QuestionnaireAdapter(ArrayList<QuestionnaireItem> exampleList) {
         mExampleList = exampleList;
+
+
     }
 
     @Override
     public int getItemViewType(int position) {
         QuestionnaireItem message = (QuestionnaireItem) mExampleList.get(position);
-        if(message.getType()==0&&message.option.size()<3)
+       /* if(message.getType()==0&&message.option.size()<3)
         {
             return VIEW_TYPE_QUESTION;
         }
-        else if (message.getType()==0) {
+        else*/
+        if (message.getType() == 0) {
             // If the current user is the sender of the message
             return VIEW_TYPE_ANSWER_SPINNER;
-        }
-        else if (message.getType()==1) {
+        } else if (message.getType() == 1) {
             // If the current user is the sender of the message
             return VIEW_TYPE_ANSWER;
-        }
-        else if (message.getType()==2) {
+        } else if (message.getType() == 2) {
             // If the current user is the sender of the message
             return VIEW_TYPE_END;
-        }
-        else {
+        } else {
             // If some other user sent the message
             return HIDDEN;
         }
@@ -163,37 +169,33 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
     public QuestionnaireViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
 
-        if(viewType == VIEW_TYPE_ANSWER_SPINNER){
+        if (viewType == VIEW_TYPE_ANSWER_SPINNER) {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_chat_spinner, parent, false);
-            return new QuestionnaireViewHolder(view,VIEW_TYPE_ANSWER_SPINNER, mListener);
-        }
-        else if(viewType == VIEW_TYPE_QUESTION){
+            return new QuestionnaireViewHolder(view, VIEW_TYPE_ANSWER_SPINNER, mListener);
+        } else if (viewType == VIEW_TYPE_QUESTION) {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_chat_other, parent, false);
-            return new QuestionnaireViewHolder(view,VIEW_TYPE_QUESTION, mListener);
-        }
-        else if(viewType == VIEW_TYPE_ANSWER){
+            return new QuestionnaireViewHolder(view, VIEW_TYPE_QUESTION, mListener);
+        } else if (viewType == VIEW_TYPE_ANSWER) {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_chat_me, parent, false);
-            return new QuestionnaireViewHolder(view,VIEW_TYPE_ANSWER, mListener);
-        }
-        else if(viewType == VIEW_TYPE_END){
+            return new QuestionnaireViewHolder(view, VIEW_TYPE_ANSWER, mListener);
+        } else if (viewType == VIEW_TYPE_END) {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_chat_end, parent, false);
-            return new QuestionnaireViewHolder(view,VIEW_TYPE_END, mListener);
-        }
-        else {
+            return new QuestionnaireViewHolder(view, VIEW_TYPE_END, mListener);
+        } else {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.empty_view, parent, false);
-            return new QuestionnaireViewHolder(view,HIDDEN, mListener);
+            return new QuestionnaireViewHolder(view, HIDDEN, mListener);
         }
 
     }
 
     @Override
-    public void onBindViewHolder(QuestionnaireViewHolder holder, int position) {
-        QuestionnaireItem currentItem = mExampleList.get(position);
+    public void onBindViewHolder(QuestionnaireViewHolder holder, int positions) {
+        QuestionnaireItem currentItem = mExampleList.get(positions);
 
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_ANSWER:
@@ -209,8 +211,7 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
                 List<String> options = new ArrayList<>();
                 options.add("Please Select");
                 options.addAll(currentItem.getOption());
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                        holder.itemView.getContext(), android.R.layout.simple_spinner_item, options){
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(holder.itemView.getContext(), android.R.layout.simple_spinner_item, options){
                     @Override
                     public boolean isEnabled(int sposition){
                         if(sposition == 0)
@@ -240,10 +241,13 @@ public class QuestionnaireAdapter extends RecyclerView.Adapter<QuestionnaireAdap
                     }
                 };
 
+
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 holder.optionSpinner.setAdapter(arrayAdapter);
+
                 break;
-            case HIDDEN: break;
+            case HIDDEN:
+                break;
         }
 
     }

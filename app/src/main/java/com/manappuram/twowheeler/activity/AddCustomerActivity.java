@@ -156,7 +156,8 @@ public class AddCustomerActivity extends AppCompatActivity {
         binding.btnAddMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addMore();
+
+              //  addMore();
             }
         });
 
@@ -183,6 +184,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 //        });
 
     }
+
 
     private void getAddress() {
         Log.v("thudangi", "thudangi");
@@ -263,28 +265,34 @@ public class AddCustomerActivity extends AppCompatActivity {
         viewModel.getCibilResponseMutableLiveData().observe(this, cibilScoreOutput -> {
 
             if (cibilScoreOutput != null) {
-
+                Log.v("keri","keri");
                 if (cibilScoreOutput.getStatus().equals("SUCCESS")) {
+                    Log.v("jayichu","jayichu");
                     if (cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess().equals("True")) {
 
-                        score = cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getBureauResponseXml().getCreditReport().getScoreSegment().getScore();
+
+                 //       binding.etCheckCibil.setText(cibilScoreOutput.getData().toString());
+
+                        score = cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getBureauResponseXml().getCreditReport().getScoreSegment().getScore().replaceFirst("^0+(?!$)", "");
+
+                        Log.v("cibscore",score);
                         Utility.cancelProgressbar();
 
-                        if (score == null) {
-                            score = "000-1";
-                        }
+//                        if (score == null) {
+//                            score = "000-1";
+//                        }
 
-                        Toast.makeText(this, "CIBIL score is " + score, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "CIBIL score is " + score, Toast.LENGTH_LONG).show();
                         addCustomer();
 
 
                     } else {
                         Utility.cancelProgressbar();
-                        Toast.makeText(this, "CIBIL score Calculation Error! Please retry!", Toast.LENGTH_SHORT).show();
-                        // Toast.makeText(this, "" + cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess(), Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(this, "CIBIL score Calculation Error! Please retry!", Toast.LENGTH_LONG).show();
+                         Toast.makeText(this, "" + cibilScoreOutput.getData().getCibilApplicationNoResponse().getData().getEnvelope().getBody().getExecuteXMLStringResponse().getExecuteXMLStringResult().getDcResponse().getContextData().getField().get(0).getApplicants().getApplicant().getDsCibilBureau().getResponse().getCibilBureauResponse().getIsSucess(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, cibilScoreOutput.getApiStatus() + " : " + cibilScoreOutput.getResponseMsg(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, cibilScoreOutput.getApiStatus() + " : " + cibilScoreOutput.getResponseMsg(), Toast.LENGTH_LONG).show();
                 }
 
 
@@ -296,7 +304,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
             if (error.getContent() != null) {
                 Utility.cancelProgressbar();
-                Toast.makeText(this, error.getContent().getResult(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, error.getContent().getResult(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -588,7 +596,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
             if (addCustomerResponse != null) {
                 if (addCustomerResponse.getStatus().equals("111")) {
-                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), AddCustDocumentActivity.class);
 //                    intent.putExtra("name", binding.etFullName.getText().toString());
 //                    intent.putExtra("dob", binding.tvDate.getText().toString());
@@ -615,7 +623,7 @@ public class AddCustomerActivity extends AppCompatActivity {
                     startActivity(intent);
                     // finish();
                 } else {
-                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, addCustomerResponse.getResult(), Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -624,7 +632,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
                 if (error.getContent() != null) {
                     //    Utility.cancelProgressbar();
-                    Toast.makeText(AddCustomerActivity.this, error.getContent().getResult(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCustomerActivity.this, error.getContent().getResult(), Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -732,9 +740,10 @@ public class AddCustomerActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             return false;
         }
-        if (ageInt < 23 || ageInt > 65) {
+        if (ageInt < 21 || ageInt > 65) {
 
-            Toast.makeText(this, "Age Should be between 23 and 65", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, "Age Should be between 21 and 65", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -857,7 +866,7 @@ public class AddCustomerActivity extends AppCompatActivity {
 
 
                         binding.rlOthersType.setVisibility(View.GONE);
-                        binding.btnAddMore.setVisibility(View.VISIBLE);
+                       // binding.btnAddMore.setVisibility(View.VISIBLE);
                         binding.llSelectedLprList.setVisibility(View.VISIBLE);
 
                         prodid = otherVerticalsResponse.getProductList().get(position - 1).getProductId();

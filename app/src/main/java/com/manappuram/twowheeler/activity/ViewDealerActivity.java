@@ -1,20 +1,29 @@
 package com.manappuram.twowheeler.activity;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.manappuram.twowheeler.R;
 import com.manappuram.twowheeler.adapter.ViewDealerItemAdapter;
 import com.manappuram.twowheeler.databinding.ActivityViewDealerBinding;
+import com.manappuram.twowheeler.request.BaseRequest;
 import com.manappuram.twowheeler.request.ViewDealerListRequest;
 import com.manappuram.twowheeler.response.ViewDealerListResponse;
 import com.manappuram.twowheeler.utils.Utility;
@@ -29,7 +38,13 @@ public class ViewDealerActivity extends AppCompatActivity {
     public SharedPreferences.Editor editor;
     public String sessionId = "";
     public String empCode = "";
+    public String postId = "";
+    public String deptId = "";
     ViewDealerItemAdapter adapter;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    TextView navUserName, navEmpCode, navEmpPost;
+    NavigationView navigationView;
 
 
 
@@ -42,10 +57,39 @@ public class ViewDealerActivity extends AppCompatActivity {
         editor = sharedPreferences.edit();
         sessionId = sharedPreferences.getString("sessionId", "");
         empCode = sharedPreferences.getString("empCode", "");
+        postId = sharedPreferences.getString("postId", "");
+        deptId = sharedPreferences.getString("departId", "");
+
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_dealer);
         adapter = new ViewDealerItemAdapter(ViewDealerActivity.this, dealer_list);
         binding.recycleDealer.setAdapter(adapter);
+
+        navigationView = binding.navigationView;
+        View headerView = navigationView.getHeaderView(0);
+        navUserName = headerView.findViewById(R.id.drawer_username);
+        navEmpCode = headerView.findViewById(R.id.drawer_empcode);
+        navEmpPost = headerView.findViewById(R.id.drawer_emppost);
+
+        drawerLayout = binding.myDrawerLayout;
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        navUserName.setText("" + sharedPreferences.getString("name", ""));
+        navEmpCode.setText(sharedPreferences.getString("empCode", ""));
+        if (sharedPreferences.contains("designation"))
+            navEmpPost.setText(sharedPreferences.getString("designation", ""));
+        binding.btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
+        checkEmpPermission();
         getDealers();
         searchFunction();
 
@@ -56,14 +100,71 @@ public class ViewDealerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        binding.btnBack.setOnClickListener(new View.OnClickListener() {
+
+        binding.btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                drawerLayout.openDrawer(Gravity.LEFT);
             }
         });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Intent i;
+                switch (id) {
+                    case R.id.nav_view_customer:
+                        i = new Intent(getApplicationContext(), ViewCustomerActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_add_customer:
+                        i = new Intent(getApplicationContext(), AddCustomerActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_add_dealer:
+                        i = new Intent(getApplicationContext(), AddDealerActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_view_dealer:
+                        i = new Intent(getApplicationContext(), ViewDealerActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_cibil_score:
+                        i = new Intent(getApplicationContext(), CibilScoreActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_questionnaire:
+                        i = new Intent(getApplicationContext(), InternalScoreCardActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_cust_approval:
+                        i = new Intent(getApplicationContext(), CustomerApprovalActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_edit_customer:
+                        i = new Intent(getApplicationContext(), CustomerApprovalActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_mis_report:
+                        i = new Intent(getApplicationContext(), MisReportActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.nav_logout:
+
+
+                        logOut();
+
+                }
+                return false;
+            }
+        });
+
     }
 
+    @Override
+    public void onBackPressed(){
+
+    }
     private void getDealers() {
         ViewDealerListRequest request = new ViewDealerListRequest();
         request.setFlag("VIEW_DEALERS");
@@ -159,5 +260,73 @@ public class ViewDealerActivity extends AppCompatActivity {
         void onitemClick(String dealer_id);
     }
 
+    private void logOut() {
+        BaseRequest request = new BaseRequest();
+        request.setSessionId(sessionId);
+        viewModel.sessionOut(request);
+
+        viewModel.getOtherVerticalsResponseMutableLiveData().observe(this, logoutResponse1 -> {
+            Utility.cancelProgressbar();
+            if (logoutResponse1 != null) {
+                if (logoutResponse1.getStatus().equals("111")) {
+                    editor.clear();
+                    editor.apply();
+                    Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        viewModel.getLoginRepository().getErrorsMutable().observe(this, error -> {
+            if (error.getContent() != null) {
+                Utility.cancelProgressbar();
+                Toast.makeText(getApplicationContext(), error.getContent().getResult(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+    private void checkEmpPermission() {
+        Menu nav_Menu = navigationView.getMenu();
+        switch (postId) {
+            case "636": //SO
+                if(deptId.equals("640")) { // Two Wheeler dept
+                    nav_Menu.findItem(R.id.nav_add_dealer).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_view_dealer).setVisible(true);
+                    nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);
+                }
+                break;
+            case "-354": //Credit Head
+            case "-134":
+            case "-352":
+            case "708":
+            case "-137":
+            case "-129":
+            case "-366":
+            case "-351":
+            case "85": //Credit Head
+                if(deptId.equals("640")) { // Two Wheeler dept
+                    nav_Menu.findItem(R.id.nav_cust_approval).setVisible(true);
+                }
+                else{
+                    nav_Menu.findItem(R.id.nav_cust_approval).setVisible(false);
+                }
+                break;
+
+            case "dealer":
+                //   nav_Menu.findItem(R.id.nav_edit_customer).setVisible(true);
+                break;
+            default:
+//                Toast.makeText(this, "Not Sales Officer " +postId, Toast.LENGTH_SHORT).show();
+                break;
+
+
+        }
+    }
 
 }

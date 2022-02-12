@@ -14,9 +14,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    public static String BASE_URL ="https://onpay.online.manappuram.com/TwowheelerService/WebService1.asmx/"; // UAT
- // public static String BASE_URL ="https://online.manappuram.com/OtherVerticalService/WebService1.asmx/"; // Production
-
+  //  public static String BASE_URL ="https://onpay.online.manappuram.com/TwowheelerService/WebService1.asmx/"; // UAT
+  public static String BASE_URL ="https://online.manappuram.com/TwowheelerService/WebService1.asmx/"; // Production
+ //public static String BASE_URL ="https://uatonpay.manappuram.com/TwowheelerService/WebService1.asmx/"; // Cloud
 
 
     private static RetrofitClient sInstance;

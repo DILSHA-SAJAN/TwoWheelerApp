@@ -253,8 +253,7 @@
                                 android:id="@+id/et_houseName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-                                android:fontFamily="@font/rubik_variable_font_wght"
+                               android:fontFamily="@font/rubik_variable_font_wght"
                                 android:importantForAutofill="no" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -454,7 +453,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:layout_marginTop="12dp">
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="90dp"
@@ -563,6 +563,7 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </RelativeLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"

@@ -115,6 +115,7 @@ public class AddCustDocumentActivity extends AppCompatActivity {
         imagePopup.setHideCloseIcon(true);  // Optional
         imagePopup.setImageOnClickClose(true);
 
+      //  binding.etShowCibil.setText(cibil_score);
         binding.etPanCard.setText(pancardNo);
         binding.panImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,6 +198,10 @@ public class AddCustDocumentActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed(){
+
+    }
     // Function to validate the PAN Card number.
     public static boolean isValidPanCardNo(String panCardNo) {
         String regex = "[A-Z]{5}[0-9]{4}[A-Z]{1}";
