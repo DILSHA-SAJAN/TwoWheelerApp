@@ -115,6 +115,7 @@ public class AddCustDocumentActivity extends AppCompatActivity {
         imagePopup.setHideCloseIcon(true);  // Optional
         imagePopup.setImageOnClickClose(true);
 
+      //  binding.etShowCibil.setText(cibil_score);
         binding.etPanCard.setText(pancardNo);
         binding.panImage.setOnClickListener(new View.OnClickListener() {
             @Override
